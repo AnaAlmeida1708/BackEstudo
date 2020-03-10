@@ -9,7 +9,7 @@ public class TesteEscrita {
 
 	public static void main(String[] args) throws IOException {
 		
-		FileOutputStream fso = new FileOutputStream("dont-speak2.txt");
+		FileOutputStream fso = new FileOutputStream("dont-speak3.txt");
 		OutputStreamWriter osw = new OutputStreamWriter(fso);
 		BufferedWriter bw = new BufferedWriter(osw);
 		
