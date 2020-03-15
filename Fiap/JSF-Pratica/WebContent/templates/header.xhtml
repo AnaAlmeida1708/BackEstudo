@@ -6,17 +6,17 @@
 	<ui:composition>
 		<div id="header">
 			<h:outputLink styleClass="headerlink" value="index.xhtml">
-				<h:graphicImage url="resources/img/fiap.jpg" />
+				<h:graphicImage url="/img/imovel.jpg" />
 			</h:outputLink>
 			<h:form>
 				<div id="languages">
 					<h:commandLink action="#{linguagemBean.mudarParaPortugues()}"
 						ajax="false">
-						<h:graphicImage name="brasil.png" library="img" />
+						<h:graphicImage name="/img/brasil.png" library="img" />
 					</h:commandLink>
 					<h:commandLink action="#{linguagemBean.mudarParaIngles()}"
 						ajax="false">
-						<h:graphicImage name="eua.png" library="img" />
+						<h:graphicImage name="/img/eua.png" library="img" />
 					</h:commandLink>
 				</div>
 			</h:form>
