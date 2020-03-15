@@ -6,10 +6,14 @@
 <title>Seja bem vindo</title>
 </h:head>
 <h:body>
-	<h1>Olá Mundo!</h1>
+	<h1>#{msg.hello}</h1>
 	<h:form>
+		<h:outputLabel value="#{msg.name}"></h:outputLabel>
 		<h:inputText value="#{olaBean.nome}"></h:inputText>
-		<h:commandButton value="Enviar" action="#{olaBean.dizerOla}"></h:commandButton>
+		<h:commandButton value="#{msg.send}" action="#{olaBean.dizerOla}"></h:commandButton>
+		<h:commandButton value="Index" action="index"></h:commandButton>
 	</h:form>
+	
+	<h:link outcome="index">Index</h:link>
 </h:body>
 </html>
