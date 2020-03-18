@@ -10,7 +10,7 @@ public class TesteLeitura {
 	public static void main (String [] args) throws IOException {
 		
 		FileInputStream fis = new FileInputStream("dont-speak.txt");
-		InputStreamReader isr = new InputStreamReader(fis);
+		InputStreamReader isr = new InputStreamReader(fis, "UTF-8");//Importante inserir o encode igual ao do arquivo para evitar erros na visualização
 		BufferedReader br = new BufferedReader(isr);
 		
 		String linha = br.readLine();

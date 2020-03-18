@@ -14,11 +14,11 @@ public class TesteCopiarArquivo {
 		
 //		FileInputStream fis = new FileInputStream("dont-speak.txt");
 		InputStream fis = System.in;
-		InputStreamReader isr = new InputStreamReader(fis);
+		InputStreamReader isr = new InputStreamReader(fis, "UTF-8");
 		BufferedReader br = new BufferedReader(isr);
 		
-		FileOutputStream fso = new FileOutputStream("dont-speak2.txt");
-		OutputStreamWriter osw = new OutputStreamWriter(fso);
+		FileOutputStream fso = new FileOutputStream("dont-speak4.txt");
+		OutputStreamWriter osw = new OutputStreamWriter(fso, "UTF-8");
 		BufferedWriter bw = new BufferedWriter(osw);
 		
 		String linha = br.readLine();
