@@ -1,16 +1,14 @@
 package br.com.fiap.imoveis.bean;
 
 import java.util.List;
-
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
-
+import javax.enterprise.context.SessionScoped;
+import javax.inject.Named;
 import br.com.fiap.imoveis.entity.Theme;
 import br.com.fiap.imoveis.service.ThemePreferenceService;
 
 @SessionScoped
-@ManagedBean
+@Named
 public class TrocaThemeBean {
 	
 	//atributo com a lista de temas
@@ -30,7 +28,6 @@ public class TrocaThemeBean {
 	}
 	@PostConstruct
 	public void init() {
-		tp = new ThemePreferenceService();
 		//Busca no service todos os temas carregados do json
 		themes = tp.getThemes();
 		//Busca do service o tema default

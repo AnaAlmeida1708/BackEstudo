@@ -3,12 +3,12 @@ package br.com.fiap.imoveis.bean;
 import java.io.Serializable;
 import java.util.Locale;
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
 import javax.faces.component.UIViewRoot;
 import javax.faces.context.FacesContext;
+import javax.inject.Named;
+import javax.enterprise.context.SessionScoped;
 
-@ManagedBean
+@Named
 @SessionScoped
 public class LinguagemBean implements Serializable {
 	

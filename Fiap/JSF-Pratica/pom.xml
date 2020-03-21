@@ -27,12 +27,11 @@
 		</plugins>
 	</build>
 	<dependencies>
-		<!-- Mojarra 2.2.2 -->
 		<dependency>
-			<groupId>org.glassfish</groupId>
-			<artifactId>javax.faces</artifactId>
-			<version>2.2.2</version>
-			<scope>compile</scope>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>8.0</version>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -55,7 +54,7 @@
 			<artifactId>all-themes</artifactId>
 			<version>1.0.8</version>
 			<type>pom</type>
-		</dependency> 
+		</dependency>
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>

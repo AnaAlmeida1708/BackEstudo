@@ -4,12 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import br.com.fiap.imoveis.entity.Solicitacao;
+import javax.inject.Named;
 
-@ManagedBean
+@Named
+@RequestScoped
 public class SolicitacaoBean {
 	
 	private Solicitacao solicitacao;

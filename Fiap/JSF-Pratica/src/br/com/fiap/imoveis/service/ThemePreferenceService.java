@@ -7,12 +7,14 @@ import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.enterprise.inject.Model;
 import javax.faces.context.FacesContext;
 
 import com.google.gson.Gson;
 
 import br.com.fiap.imoveis.entity.Theme;
 
+@Model
 public class ThemePreferenceService implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private String theme;

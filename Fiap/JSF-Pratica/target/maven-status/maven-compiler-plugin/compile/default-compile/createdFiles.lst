@@ -1,3 +1,6 @@
 br\com\fiap\imoveis\bean\LinguagemBean.class
+br\com\fiap\imoveis\bean\TrocaThemeBean.class
 br\com\fiap\imoveis\entity\Solicitacao.class
+br\com\fiap\imoveis\service\ThemePreferenceService.class
+br\com\fiap\imoveis\entity\Theme.class
 br\com\fiap\imoveis\bean\SolicitacaoBean.class
