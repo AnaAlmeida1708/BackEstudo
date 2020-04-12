@@ -46,6 +46,25 @@ public class Curso {
 	public List<Aula> getAulas() {
 		return Collections.unmodifiableList(aulas);
 	}
+	
+	public int getDuracaoTotal() {
+	    int duracaoTotal = 0;
+	    for (Aula aula : aulas) {
+	        duracaoTotal += aula.getDuracao();
+	    }
+	    return duracaoTotal;
+	}
+	
+	//Este é o mesmo método, mas usando Java 8
+	public int getTempoTotal() {
+	    return this.aulas.stream().mapToInt(Aula::getDuracao).sum();
+	}
+	
+	//também poderíamos ter criado um atributo que toda vez que uma aula fosse adicionada, somaríamos o tempo total
+//	public void adiciona(Aula aula) {
+//	    this.aulas.add(aula);
+//	    this.tempoTotal += aula.getTempo();
+//	}
 
 	@Override
 	public String toString() {
