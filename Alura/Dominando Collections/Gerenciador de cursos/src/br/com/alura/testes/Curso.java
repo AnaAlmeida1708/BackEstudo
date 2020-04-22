@@ -20,6 +20,12 @@ public class Curso {
 	 */
 	private List<Aula> aulas = new ArrayList<>();
 	
+	/**
+	 * Outras opções de collection:
+	 * LinkedHashSet - Guarda a ordem de inserção dos elementos
+	 * TreeSet - Guarda a ordem natural dos elementos (necessário que a coleção implemente o comparable, para que ela possa identificar a 
+	 * ordem natural
+	 */
 	private Set<Aluno> alunos = new HashSet<>();
 	
 	public Curso(String nome, String instrutor) {
