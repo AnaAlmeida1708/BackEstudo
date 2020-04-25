@@ -2,8 +2,11 @@ package br.com.alura.testes;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.NoSuchElementException;
 import java.util.Set;
 
 public class Curso {
@@ -27,6 +30,11 @@ public class Curso {
 	 * ordem natural
 	 */
 	private Set<Aluno> alunos = new HashSet<>();
+	
+	/**
+	 * Cria um mapa através da chave indicada, neste caso a matrícula, muito rápido para buscas
+	 */
+	private Map<Integer, Aluno> alunoMatriculado = new HashMap<>();
 	
 	public Curso(String nome, String instrutor) {
 		super();
@@ -79,7 +87,8 @@ public class Curso {
 
 
 	public void matricula(Aluno aluno) {
-		this.alunos.add(aluno);		
+		this.alunos.add(aluno);
+		this.alunoMatriculado.put(aluno.getnumeroMatricula(), aluno);
 	}
 	
 	public Set<Aluno> getAlunos(){
@@ -95,6 +104,26 @@ public class Curso {
 		return "Curso [" + (nome != null ? "nome=" + nome + ", " : "")
 				+ (instrutor != null ? "instrutor=" + instrutor + ", " : "") + (aulas != null ? "aulas=" + aulas : "")
 				+ "]";
+	}
+	
+	//busca otimizada usando o Map
+	public Aluno buscaPorMatricula(int matricula) {
+		if(!alunoMatriculado.containsKey(matricula)) {
+			throw new NoSuchElementException("Matricula " + matricula
+		            + " não encontrada");
+		}
+		return this.alunoMatriculado.get(matricula);
+	}
+	
+	//Forma mais lenta de fazer a busca por matrícula, se forem muitos elementos não é performático
+	public Aluno buscaMatriculado(int numero) {
+	    for (Aluno aluno : alunos) {
+	        if (aluno.getnumeroMatricula() == numero) {
+	            return aluno;
+	        }
+	    }
+	    throw new NoSuchElementException("Matricula " + numero
+	            + " não encontrada");
 	}
 
 
