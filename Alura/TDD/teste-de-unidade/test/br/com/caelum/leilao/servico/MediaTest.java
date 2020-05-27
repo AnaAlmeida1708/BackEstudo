@@ -5,6 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Assert;
 import org.junit.Test;
 
+import br.com.caelum.leilao.avulsos.Media;
 import br.com.caelum.leilao.dominio.Lance;
 import br.com.caelum.leilao.dominio.Leilao;
 import br.com.caelum.leilao.dominio.Usuario;
@@ -23,7 +24,7 @@ public class MediaTest {
         leilao.propoe(new Lance(jose, 400.0));
         leilao.propoe(new Lance(maria, 500.0));
 
-        Avaliador leiloeiro = new Avaliador();
+        Media leiloeiro = new Media();
         leiloeiro.avalia(leilao);
         
         double media = 400;
@@ -39,10 +40,10 @@ public class MediaTest {
         // acao
         Leilao leilao = new Leilao("Iphone 7");
 
-        Avaliador avaliador = new Avaliador();
-        avaliador.avalia(leilao);
+        Media leiloeiro = new Media();
+        leiloeiro.avalia(leilao);
         
-        assertEquals(0, avaliador.getMedia(), 0.00001);
+        assertEquals(0, leiloeiro.getMedia(), 0.00001);
 	}
 
 }	
