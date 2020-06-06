@@ -1,6 +1,6 @@
 package br.com.caelum.leilao.servico;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import java.util.List;
 
@@ -29,10 +29,10 @@ public class AvaliadorTest {
         this.higor = new Usuario("Higor");
 	}
 	
-	@After
-	public void finaliza() {
-	  System.out.println("fim");
-	}
+//	@After
+//	public void finaliza() {
+//	  System.out.println("fim");
+//	}
 	
 	@Test
 	public void deveEntenderLancesEmOrdemCrescente() {//o método precisa ser public, não pode ser static e não retorna nada
@@ -59,6 +59,7 @@ public class AvaliadorTest {
          */
         assertEquals(maiorEsperado, leiloeiro.getMaiorLance(), 0.00001);
         assertEquals(menorEsperado, leiloeiro.getMenorLance(), 0.00001);
+        
 	}
 	
 	@Test
@@ -145,13 +146,13 @@ public class AvaliadorTest {
         assertEquals(200, maiores.get(1).getValor(), 0.00001);
 	}
 	
-	@Test
-	public void deveDevolverListaVaziaCasoNaoHajaLances() {
-		Leilao leilao = new Leilao("Playstation 3 Novo");
-        
-        leiloeiro.avalia(leilao);
-        
-        List<Lance> maiores = leiloeiro.getTresMaiores();
-        assertEquals(0, maiores.size());
+	
+	@Test(expected = RuntimeException.class)//Informamos que o teste só está correto se essa exceção for lançada
+	public void naoDeveAvaliarLeiloesSemNenhumLanceDado() {
+		Leilao leilao = new CriadorDeLeilao().para("TV Samsung 50p").constroi();
+		
+		leiloeiro.avalia(leilao);
 	}
+	
+	
 }

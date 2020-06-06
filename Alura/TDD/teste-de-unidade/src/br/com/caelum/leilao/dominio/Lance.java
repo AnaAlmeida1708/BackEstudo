@@ -6,6 +6,9 @@ public class Lance {
 	private double valor;
 	
 	public Lance(Usuario usuario, double valor) {
+		if(valor <=0) {
+			throw new IllegalArgumentException("Não é possível dar lance menor ou igual a zero");
+		}
 		this.usuario = usuario;
 		this.valor = valor;
 	}
@@ -17,7 +20,6 @@ public class Lance {
 	public double getValor() {
 		return valor;
 	}
-	
 	
 	
 }
