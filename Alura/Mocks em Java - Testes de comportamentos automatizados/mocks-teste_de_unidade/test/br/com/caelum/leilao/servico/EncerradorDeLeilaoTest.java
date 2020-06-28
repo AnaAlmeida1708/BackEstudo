@@ -174,16 +174,16 @@ public class EncerradorDeLeilaoTest {
 		RepositorioDeLeiloes daoFalso = mock(RepositorioDeLeiloes.class);
 		when(daoFalso.correntes()).thenReturn(Arrays.asList(leilao1, leilao2));
 		//doThrow: indica que ele deve lançar uma exceção, o quando indica o momento do lançamento dela
-		doThrow(new RuntimeException()).when(daoFalso).atualiza(leilao1);
-		doThrow(new RuntimeException()).when(daoFalso).atualiza(leilao2);
+		doThrow(new RuntimeException()).when(daoFalso).atualiza(any(Leilao.class)); 
+//		doThrow(new RuntimeException()).when(daoFalso).atualiza(leilao2);
 		
 		EnviadorDeEmail carteiroFalso = mock(EnviadorDeEmail.class);
 		
 		EncerradorDeLeilao encerrador = new EncerradorDeLeilao(daoFalso, carteiroFalso);
 		encerrador.encerra();
 		
-		verify(carteiroFalso, never()).envia(leilao1);
-		verify(carteiroFalso, never()).envia(leilao2);
+		verify(carteiroFalso, never()).envia(any(Leilao.class));//aqui  informamos ao Mockito que não importa qual leilão o mock vai receber usando o método any()
+//		verify(carteiroFalso, never()).envia(leilao2);
 		
 	}
 	
