@@ -1,6 +1,11 @@
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
+import java.util.OptionalDouble;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+import java.util.stream.DoubleStream;
 
 class Curso {
 	private String nome;
@@ -57,6 +62,23 @@ public class ExemploStreams {
 		 
 		 System.out.println(soma);
 		 
+		 Optional<Curso> optional = cursos.stream()
+		 .filter(c -> c.getAlunos() > 50)
+		 .findFirst();
+		 Curso curso = optional.get();
+		 System.out.println(curso.getNome().toString());
+		 
+		 OptionalDouble media = cursos.stream()
+		    .mapToInt(c -> c.getAlunos())
+		    .average();
+		 
+		 System.out.println(media);
+		 
+		 List<Curso> curs = cursos.stream()
+				 .filter(c -> c.getAlunos() > 50)
+				 .collect(Collectors.toList());
+		 
+		 curs.forEach(c -> System.out.println(c.getNome().toString()));
 		 
 	}
 
