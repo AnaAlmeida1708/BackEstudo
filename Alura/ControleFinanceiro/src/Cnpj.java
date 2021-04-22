@@ -2,6 +2,15 @@
 public class Cnpj {
 	private String valor;
 	
+
+	public Cnpj(String valor) {
+		super();
+		this.valor = valor;
+	}
+	
+	public Cnpj() {
+	}
+
 	public boolean ehValido() {
 		return primeiroDigitoVerificador() == primeiroDigitoCorreto()
 				&& segundoDigitoVerificador() == segundoDigitoCorreto();
@@ -38,6 +47,11 @@ public class Cnpj {
     public int hashCode() {
         return this.valor.hashCode(); // delegamos a geracao do hashCode da classe Cnpj para seu atributo String valor
     }
+
+	@Override
+	public String toString() {
+		return this.valor;
+	}
 	
 	
 }
