@@ -1,5 +1,5 @@
 
-public class Cnpj {
+public class Cnpj implements Documento{
 	private String valor;
 	
 
