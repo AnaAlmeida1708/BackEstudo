@@ -2,7 +2,7 @@ import java.util.Calendar;
 
 public class Pagamento {
 	private String pagador;
-	private String documentoPagador;
+	private Documento documentoPagador;
 	private Double valor;
 	private Calendar data;
 
@@ -12,10 +12,10 @@ public class Pagamento {
 	public void setPagador(String pagador) {
 		this.pagador = pagador;
 	}
-	public String getDocumentoPagador() {
+	public Documento getDocumentoPagador() {
 		return documentoPagador;
 	}
-	public void setDocumentoPagador(String documentoPagador) {
+	public void setDocumentoPagador(Documento documentoPagador) {
 		this.documentoPagador = documentoPagador;
 	}
 	public Double getValor() {
