@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.javamoney.moneta.Money;
 
@@ -16,13 +17,11 @@ public class Livros implements Iterable<Livro> {
 				.collect(Collectors.toList());
 	}
 	
-	public Money getSubtotal() {		
-		Money subTotal = Money.of(0, Livraria.reais);
-		for(Livro livro : lista) {
-			Money valorDoLivro = livro.getValor();
-			subTotal = subTotal.add(valorDoLivro);
-		}
-		return subTotal;
+	public Money getSubtotal() {	
+		return lista.stream().
+				map(Livro::getValor).
+				reduce(Money.of(0, Livraria.reais), Money::add);
+
 	}
 
 	@Override
