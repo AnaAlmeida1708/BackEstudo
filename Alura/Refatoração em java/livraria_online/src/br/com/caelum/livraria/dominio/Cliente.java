@@ -3,10 +3,14 @@ package br.com.caelum.livraria.dominio;
 public class Cliente {
 
 	private final String id;
-	private final Telefone telefone;
+	private final String cep;
+	private final String ddd;
+	private final String telefone;
 	
-	public Cliente(String id, Telefone telefone) {
+	public Cliente(String id, String ddd, String telefone, String cep) {
 		this.id = id;
+		this.cep = cep;
+		this.ddd = ddd;
 		this.telefone = telefone;
 	}
 
@@ -26,6 +30,14 @@ public class Cliente {
 	}
 
 	public String getTelefone() {
-		return telefone.toString();
+		return getTelefoneFormatado();
+	}
+
+	public String getCep() {
+		return cep;
+	}
+	
+	public String getTelefoneFormatado() {
+		return String.format("(%s) %s", ddd, telefone); 
 	}
 }
