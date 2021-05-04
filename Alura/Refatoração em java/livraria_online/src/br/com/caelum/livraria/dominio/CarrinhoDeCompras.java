@@ -70,8 +70,8 @@ public class CarrinhoDeCompras implements Iterable<Livro> {
 	public Iterator<Livro> iterator() {
 		return livros.iterator();
 	}
-
-	public Livros getLivros() {
-		return livros;
+	
+	public void adicionar(Livro livro) {
+		livros.adicionar(livro);
 	}
 }
