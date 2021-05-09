@@ -6,16 +6,17 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Nova Empresa</title>
+		<title>Lista Empresas</title>
 	</head>
 	
 	<body>
-		<c:if test="${not empty empresa }">
-			Nova empresa ${empresa} cadastrada com sucesso!
-		</c:if>
-		<c:if test="${empty empresa }">
-			Nenhuma empresa cadastrada!
-		</c:if>
-		
+		<h1>Lista Empresas</h1>
+		<ul>
+			<c:forEach items="${empresas }" var="empresa">
+			
+				<li>${empresa.nome }   <fmt:formatDate value="${empresa.dataAbertura }" pattern="dd/MM/yyyy "/></li>
+			</c:forEach>
+		</ul>
 	</body>
+	
 </html>
