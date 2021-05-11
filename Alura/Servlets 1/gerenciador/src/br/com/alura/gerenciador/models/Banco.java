@@ -2,6 +2,7 @@ package br.com.alura.gerenciador.models;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 public class Banco {
@@ -24,6 +25,33 @@ public class Banco {
 	
 	public List<Empresa> getEmpresas(){
 		return Banco.empresas;
+	}
+
+	public void removeEmpresa(Integer idEmpresa) {
+		Iterator<Empresa> it = empresas.iterator();
+
+	    while(it.hasNext()) { 
+	        Empresa emp = it.next();
+
+	        if(emp.getId() == idEmpresa ) {
+	            it.remove();
+	        }
+	    }
+		
+	}
+
+	public Empresa buscaEmpresaPorId(Integer id) {
+		for (Empresa empresa : empresas) {
+			if(empresa.getId() == id)
+				return empresa;
+		}
+	return null;
+	}
+
+	public void atualizaEmpresa(String nome, Date dataAbertura, Integer id) {
+		Empresa empresa = buscaEmpresaPorId(id);
+		empresa.setNome(nome);
+		empresa.setDataAbertura(dataAbertura);
 	}
 
 }
