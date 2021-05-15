@@ -12,6 +12,7 @@
 	</head>
 
 	<body>
+		<c:import url="logout-parcial.jsp"></c:import>
 		<form action="${editarEmpresa } " method="post">
 			<input type="text" hidden="true" name="id" value="${empresa.id }">
         	Nome: <input type="text" name="nome" value="${empresa.nome }"/>

@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import br.com.alura.gerenciador.acao.Acao;
 
@@ -24,6 +25,14 @@ public class ControllerServlet extends HttpServlet {
 
 		String nomeDaClasse = "br.com.alura.gerenciador.acao." + 
 	            paramAcao;
+		
+		HttpSession sessao = request.getSession();
+		Boolean usuarioIsLogado = sessao.getAttribute("usuario") != null;
+		Boolean ehUmaAcaoProtegida = paramAcao.equals("Login") || paramAcao.equals("LoginForm");
+		if(!usuarioIsLogado && !ehUmaAcaoProtegida) {
+			response.sendRedirect("empresa?acao=LoginForm");
+			return;
+		}
 
 	        String nome;
 	        try {

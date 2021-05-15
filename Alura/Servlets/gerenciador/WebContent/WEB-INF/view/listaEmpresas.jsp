@@ -17,10 +17,15 @@
 	
 	<body>
 		<input type="hidden" name="acao" value="ListaEmpresas">
+		
+		<c:import url="logout-parcial.jsp"></c:import>
+		<h2>Usuario logado: ${usuario.login }</h2>
+		
 		<c:if test="${not empty empresa }">
 			Nova empresa ${empresa} cadastrada com sucesso!
 		</c:if>
-		<h1>Lista Empresas</h1>
+		
+		<h3>Lista Empresas</h3>
 			<table class="table" >
 				  <thead class="thead-dark">
 				    <tr>

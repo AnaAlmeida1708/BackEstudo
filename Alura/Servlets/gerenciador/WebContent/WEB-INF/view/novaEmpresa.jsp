@@ -11,7 +11,7 @@
 	</head>
 
 	<body>
-	
+		<c:import url="logout-parcial.jsp"></c:import>
 		<form action="${url }" method="post">
 
         	Nome: <input type="text" name="nome" />
