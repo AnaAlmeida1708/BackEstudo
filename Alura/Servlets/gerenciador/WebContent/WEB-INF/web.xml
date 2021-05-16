@@ -13,4 +13,32 @@
 		<!-- 10 min -->
 		<session-timeout>10</session-timeout>
 	</session-config>
+	
+	<filter>
+		<filter-name>MonitoramentoFilter</filter-name>
+		<filter-class>br.com.alura.gerenciador.servlet.MonitoramentoFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>MonitoramentoFilter</filter-name>
+		<url-pattern>/empresa</url-pattern>
+	</filter-mapping>
+	
+	<filter>
+		<filter-name>AutorizacaoFilter</filter-name>
+		<filter-class>br.com.alura.gerenciador.servlet.AutorizacaoFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>AutorizacaoFilter</filter-name>
+		<url-pattern>/empresa</url-pattern>
+	</filter-mapping>
+	
+	<filter>
+		<filter-name>ControladorFilter</filter-name>
+		<filter-class>br.com.alura.gerenciador.servlet.ControladorFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>ControladorFilter</filter-name>
+		<url-pattern>/empresa</url-pattern>
+	</filter-mapping>
+	
 </web-app>
