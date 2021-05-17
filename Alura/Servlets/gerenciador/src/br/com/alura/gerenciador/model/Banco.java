@@ -11,9 +11,9 @@ public class Banco {
 	private static List<Usuario> listaUsuarios= new ArrayList<>();
 	
 	static {
-		Empresa empresa1 = new Empresa("Alura", "03/05/2003");
-		Empresa empresa2 = new Empresa("Caellum", "27/07/2008");
-		Empresa empresa3 = new Empresa("Marketdata", "07/06/2002");
+		Empresa empresa1 = new Empresa("Alura", new Date("03/05/2003"));
+		Empresa empresa2 = new Empresa("Caellum", new Date("27/07/2008"));
+		Empresa empresa3 = new Empresa("Marketdata", new Date("07/06/2002"));
 		Banco.empresas.add(empresa1);
 		Banco.empresas.add(empresa2);
 		Banco.empresas.add(empresa3);
