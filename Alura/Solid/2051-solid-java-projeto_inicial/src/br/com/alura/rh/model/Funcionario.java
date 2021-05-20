@@ -1,10 +1,14 @@
 package br.com.alura.rh.model;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
-import br.com.alura.rh.ValidacaoException;
+import br.com.alura.rh.service.ReajusteSalarioService;
+import br.com.alura.rh.validacoes.service.ValidacaoPercentualReajuste;
+import br.com.alura.rh.validacoes.service.ValidacaoPeriodicidadeEntreReajustes;
+import br.com.alura.rh.validacoes.service.ValidacoesReajuste;
 
 public class Funcionario {
 

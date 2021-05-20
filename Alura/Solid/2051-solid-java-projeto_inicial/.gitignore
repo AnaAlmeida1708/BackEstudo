@@ -33,5 +33,5 @@ target/*
 .sts4-cache
 /Servers
 .metadata
-
+*.temp
 
