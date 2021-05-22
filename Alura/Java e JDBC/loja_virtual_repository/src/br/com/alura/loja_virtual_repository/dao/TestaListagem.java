@@ -1,9 +1,9 @@
 package br.com.alura.loja_virtual_repository.dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,8 +15,8 @@ public class TestaListagem {
 		ConnectionFactory connectionFactory = new ConnectionFactory();
 		Connection connection = connectionFactory.recuperaConexao();
 
-		Statement stm = connection.createStatement();
-		stm.execute("SELECT * FROM PRODUTO");
+		PreparedStatement stm = connection.prepareStatement(" SELECT * FROM PRODUTO ");
+		stm.execute();
 
 		ResultSet rs = stm.getResultSet();
 

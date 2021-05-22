@@ -1,6 +1,7 @@
 package br.com.alura.loja_virtual_repository.dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -11,8 +12,15 @@ public class TestaCadastro {
 		ConnectionFactory connectionFactory = new ConnectionFactory();
 		Connection connection = connectionFactory.recuperaConexao();
 		
-		Statement stm = connection.createStatement();
-		stm.execute(" INSERT INTO PRODUTO (NOME,DESCRICAO) VALUES ('CADEIRA', 'CADEIRA GAMER')" , Statement.RETURN_GENERATED_KEYS);
+		String nome = "TECLADO";
+		String descricao = "TECLADO SEM FIO";
+		
+		PreparedStatement stm = connection.prepareStatement(" INSERT INTO PRODUTO (NOME,DESCRICAO) VALUES (?, ?)" , Statement.RETURN_GENERATED_KEYS);
+		
+		stm.setString(1, nome);
+		stm.setString(2, descricao);
+		
+		stm.execute();
 		 ResultSet rs = stm.getGeneratedKeys();
 		
 		 while (rs.next()) {
