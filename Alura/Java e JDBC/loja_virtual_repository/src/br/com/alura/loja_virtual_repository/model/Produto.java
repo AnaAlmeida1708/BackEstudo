@@ -6,6 +6,8 @@ public class Produto {
 	private String nome;
 	private String descricao;
 	
+	private Categoria categoria;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -25,12 +27,19 @@ public class Produto {
 		this.descricao = descricao;
 	}
 	
+	public Categoria getCategoria() {
+		return categoria;
+	}
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
+	
 	@Override
 	public String toString() {
 		return "Produto [" + (id != null ? "id=" + id + ", " : "") + (nome != null ? "nome=" + nome + ", " : "")
-				+ (descricao != null ? "descricao=" + descricao : "") + "]";
+				+ (descricao != null ? "descricao=" + descricao + ", " : "")
+				+ (categoria != null ? "categoria=" + categoria : "") + "]";
 	}
-	
-	
+
 
 }

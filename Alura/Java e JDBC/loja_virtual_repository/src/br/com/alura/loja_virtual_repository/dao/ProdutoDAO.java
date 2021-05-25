@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.alura.loja_virtual_repository.model.Categoria;
 import br.com.alura.loja_virtual_repository.model.Produto;
 
 public class ProdutoDAO {
@@ -39,18 +40,24 @@ public class ProdutoDAO {
 
 	}
 	
+	//SELECT P.ID,P.NOME,P.DESCRICAO,P.CATEGORIA_ID, C.NOME CATEGORIA FROM PRODUTO P INNER JOIN CATEGORIA C ON C.ID = P.CATEGORIA_ID;
 	public List<Produto> listar() throws SQLException{
-		try(PreparedStatement stm = connection.prepareStatement(" SELECT * FROM PRODUTO ")){
+		try(PreparedStatement stm = connection.prepareStatement(" SELECT P.ID,P.NOME,P.DESCRICAO,P.CATEGORIA_ID, C.NOME CATEGORIA FROM PRODUTO P INNER JOIN CATEGORIA C ON C.ID = P.CATEGORIA_ID; ")){
 			stm.execute();
 
 			ResultSet rs = stm.getResultSet();
 
 			List<Produto> produtos = new ArrayList<Produto>();
 			while (rs.next()) {
+				Categoria categoria = new Categoria();
+				categoria.setId(rs.getInt("CATEGORIA_ID"));
+				categoria.setNome(rs.getString("CATEGORIA"));
+				
 				Produto produto = new Produto();
 				produto.setId(rs.getInt("ID"));
 				produto.setNome(rs.getString("NOME"));
 				produto.setDescricao(rs.getString("descricao"));
+				produto.setCategoria(categoria);
 
 				produtos.add(produto);
 			}

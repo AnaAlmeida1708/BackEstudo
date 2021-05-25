@@ -1,8 +1,10 @@
-package br.com.alura.loja_virtual_repository.dao;
+package br.com.alura.loja_virtual_repository.service;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+
+import br.com.alura.loja_virtual_repository.dao.ConnectionFactory;
 
 public class TestaExclusao {
 	

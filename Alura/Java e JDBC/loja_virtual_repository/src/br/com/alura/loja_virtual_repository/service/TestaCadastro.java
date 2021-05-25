@@ -1,10 +1,12 @@
-package br.com.alura.loja_virtual_repository.dao;
+package br.com.alura.loja_virtual_repository.service;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+
+import br.com.alura.loja_virtual_repository.dao.ConnectionFactory;
 
 public class TestaCadastro {
 
