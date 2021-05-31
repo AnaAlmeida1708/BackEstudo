@@ -1,5 +1,7 @@
 package br.com.alura.loja.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 
 import br.com.alura.loja.model.Categoria;
@@ -23,6 +25,15 @@ public class CategoriaDAO {
 	public void remover(Categoria categoria) {
 		categoria = this.em.merge(categoria);
 		this.em.remove(categoria);
+	}
+	
+	public Categoria buscarPorId(Long id) {
+		return this.em.find(Categoria.class, id);
+	}
+	
+	public List<Categoria> buscaTodas(){
+		String jpql = "SELECT c from Categoria c";
+		return this.em.createQuery(jpql, Categoria.class).getResultList();
 	}
 
 }

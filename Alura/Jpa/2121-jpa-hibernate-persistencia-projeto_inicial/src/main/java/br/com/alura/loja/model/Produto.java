@@ -74,12 +74,15 @@ public class Produto {
 	public LocalDate getDataCadastro() {
 		return dataCadastro;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Produto [" + (id != null ? "id=" + id + ", " : "") + (nome != null ? "nome=" + nome + ", " : "")
-				+ (descricao != null ? "descricao=" + descricao + ", " : "") + (preco != null ? "preco=" + preco : "")
-				+ "]";
+				+ (descricao != null ? "descricao=" + descricao + ", " : "")
+				+ (preco != null ? "preco=" + preco + ", " : "")
+				+ (dataCadastro != null ? "dataCadastro=" + dataCadastro + ", " : "")
+				+ (categoria != null ? "categoria=" + categoria : "") + "]";
 	}
+	
 	
 }
