@@ -41,5 +41,13 @@ public class PedidoDAO {
 				.getResultList();
 	}
 	
+	public Pedido buscarPedidoComCliente(Integer id) {
+		String jpql = "SELECT p from Pedido p JOIN FETCH p.cliente where p.id = :id ";
+		return this.em.createQuery(jpql, Pedido.class)
+				.setParameter("id", id)
+				.getSingleResult();
+		
+	}
+	
 	
 }
