@@ -26,9 +26,6 @@ public class CadastroDeProduto {
 		List<Produto> porNome = produtoDAO.buscaPorNomeCategoria("CELULARES");
 		porNome.forEach(p -> System.out.println(p));
 		
-		String nomeProduto = produtoDAO.buscaProdutoComNome("nokia");
-		System.out.println(nomeProduto);
-		
 	}
 
 	private static void cadastrarProduto() {
