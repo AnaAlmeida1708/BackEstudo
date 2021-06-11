@@ -51,4 +51,11 @@ public class Orcamento {
 		this.situacao = situacao;
 	}
 
+	@Override
+	public String toString() {
+		return "Orcamento [" + (valor != null ? "valor=" + valor + ", " : "")
+				+ (quantidadeDeItens != null ? "quantidadeDeItens=" + quantidadeDeItens + ", " : "")
+				+ (situacao != null ? "situacao=" + situacao : "") + "]";
+	}
+
 }
