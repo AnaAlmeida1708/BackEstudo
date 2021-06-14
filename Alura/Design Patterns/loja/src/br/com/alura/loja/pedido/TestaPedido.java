@@ -5,6 +5,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import br.com.alura.loja.pedido.acao.Acao;
+import br.com.alura.loja.pedido.acao.EnviarEmailPedido;
+import br.com.alura.loja.pedido.acao.SalvandoPedidoNoBancoDeDados;
+
 public class TestaPedido {
 
 	public static void main(String[] args) {
