@@ -7,7 +7,8 @@ import br.com.alura.loja.http.JavaHttpClient;
 public class TesteAdaptador {
 
 	public static void main(String[] args) {
-		Orcamento orcamento = new Orcamento(new BigDecimal("200"), 2);
+		Orcamento orcamento = new Orcamento();
+		orcamento.adicionarItem(new ItemOrcamento(new BigDecimal("200")));
 		orcamento.aprovar();
 		orcamento.finalizar();
 		
