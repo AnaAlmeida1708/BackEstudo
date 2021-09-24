@@ -27,6 +27,7 @@ public class Funcionario {
 	private String nome;
 	private String cpf;
 	private LocalDate dataDeContratacao;
+	private Double salario;
 	
 	@ManyToOne
 	@JoinColumn(name = "cargo_id", nullable = false)
@@ -75,6 +76,12 @@ public class Funcionario {
 	public void setUnidadeTrabalhos(List<UnidadeTrabalho> unidadeTrabalhos) {
 		this.unidadeTrabalhos = unidadeTrabalhos;
 	}
+	public Double getSalario() {
+		return salario;
+	}
+	public void setSalario(Double salario) {
+		this.salario = salario;
+	}
 	
 	@Override
 	public String toString() {
@@ -84,5 +91,6 @@ public class Funcionario {
 				+ (cargo != null ? "cargo=" + cargo + ", " : "")
 				+ (unidadeTrabalhos != null ? "unidadeTrabalhos=" + unidadeTrabalhos : "") + "]";
 	}
+
 
 }

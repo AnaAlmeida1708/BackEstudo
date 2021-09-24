@@ -7,10 +7,16 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import br.com.alura.springdata.orm.Cargo;
 import br.com.alura.springdata.orm.Funcionario;
+import br.com.alura.springdata.orm.FuncionarioProjecao;
 import br.com.alura.springdata.orm.UnidadeTrabalho;
 import br.com.alura.springdata.repository.CargoRepository;
 import br.com.alura.springdata.repository.FuncionarioRepository;
@@ -42,6 +48,7 @@ public class CrudFuncionarioService {
 			System.out.println("2 - Para atualizar funcionário");
 			System.out.println("3 - Listar funcionários");
 			System.out.println("4 - Remover funcionário");
+			System.out.println("5 - Listar funcionario salario");
 
 			int action = scanner.nextInt();
 			switch (action) {
@@ -55,10 +62,13 @@ public class CrudFuncionarioService {
 				atualizar(scanner);
 				break;
 			case 3:
-				listar();
+				listar(scanner);
 				break;
 			case 4:
 				deletar(scanner);
+				break;
+			case 5:
+				listarFuncionarioSalario();
 				break;
 			default:
 				system = Boolean.FALSE;
@@ -73,6 +83,8 @@ public class CrudFuncionarioService {
 		String nome = scanner.next();
 		System.out.println("CPF: ");
 		String cpf = scanner.next();
+        System.out.println("Salario: ");
+        Double salario = scanner.nextDouble();
 		System.out.println("Data de contratação: ");
 		String dataContratacao = scanner.next();
 		
@@ -84,6 +96,7 @@ public class CrudFuncionarioService {
         Funcionario funcionario = new Funcionario();
         funcionario.setNome(nome);
         funcionario.setCpf(cpf);
+        funcionario.setSalario(salario);
         funcionario.setDataDeContratacao(LocalDate.parse(dataContratacao, formatter));
         Optional<Cargo> cargo = cargoRepository.findById(idCargo);
         funcionario.setCargo(cargo.get());
@@ -121,6 +134,9 @@ public class CrudFuncionarioService {
 
         System.out.println("Digite o cpf");
         String cpf = scanner.next();
+        
+        System.out.println("Salario: ");
+        Double salario = scanner.nextDouble();
 
         System.out.println("Digite a data de contracao");
         String dataContratacao = scanner.next();
@@ -132,6 +148,7 @@ public class CrudFuncionarioService {
         funcionario.setId(id);
         funcionario.setNome(nome);
         funcionario.setCpf(cpf);
+        funcionario.setSalario(salario);
         funcionario.setDataDeContratacao(LocalDate.parse(dataContratacao, formatter));
         Optional<Cargo> cargo = cargoRepository.findById(cargoId);
         funcionario.setCargo(cargo.get());
@@ -140,8 +157,17 @@ public class CrudFuncionarioService {
 		System.out.println("Atualizado!");
 	}
 	
-	public void  listar(){
-		Iterable<Funcionario> funcionarios = funcionarioRepository.findAll();
+	public void  listar(Scanner scanner){
+		System.out.println("Qual página você deseja visualizar");
+        Integer pagina = scanner.nextInt();
+        
+        Pageable pageable = PageRequest.of(pagina, 5, Sort.by(Direction.ASC, "nome"));
+        
+		Page<Funcionario> funcionarios = funcionarioRepository.findAll(pageable);
+		
+		System.out.println(funcionarios);
+		System.out.println("Página atual : " + funcionarios.getNumber());
+		System.out.println("Total de elementos : " + funcionarios.getTotalElements());
 		funcionarios.forEach(f -> System.out.println(f));
 	}
 	
@@ -151,6 +177,12 @@ public class CrudFuncionarioService {
 		
 		funcionarioRepository.deleteById(id);
 		System.out.println("Removido!");
+	}
+	
+	public void listarFuncionarioSalario() {
+		List<FuncionarioProjecao> funcionarios = funcionarioRepository.findFuncionarioSalario();
+		funcionarios.forEach(f 
+				-> System.out.println("Id: " + f.getId() + ", Nome: " + f.getNome() + ", Salario: " + f.getSalario()));
 	}
 	
 
