@@ -4,18 +4,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class LeilaoPage {
-	
-	private WebDriver browser;
+import br.com.alura.leilao.PageObject;
+
+public class LeilaoPage extends PageObject{
 	
 	public LeilaoPage(WebDriver browser) {
-		this.browser = browser;
+		super(browser);
 	}
 	
-	public void close() {
-		this.browser.quit();
-	}
-
 	public CadastroLeilaoPage carregarFormulario() {
 		browser.findElement(By.id("novo_leilao_link")).click();
 		return new CadastroLeilaoPage(browser);
