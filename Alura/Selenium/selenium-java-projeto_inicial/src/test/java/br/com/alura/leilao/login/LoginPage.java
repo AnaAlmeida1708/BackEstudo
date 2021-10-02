@@ -5,6 +5,8 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import br.com.alura.leilao.leilao.LeilaoPage;
+
 public class LoginPage {
 	
 	private static final String HTTP_LOGIN = "http://localhost:8080/login";
@@ -24,9 +26,12 @@ public class LoginPage {
 		browser.findElement(By.id("username"))//busca o elemento na página pelo id do elemento
 		.sendKeys(login); //preenche o campo input
 		browser.findElement(By.id("password")).sendKeys(senha); 
-		
+	}
+	
+	public LeilaoPage efetuarLogin() {
 		browser.findElement(By.id("btn-login")).click();
 		//browser.findElement(By.id("login-form")).submit(); outra forma de fazer a submissão
+		return new LeilaoPage(browser);
 	}
 
 	public Boolean isPaginaDeLogin() {
