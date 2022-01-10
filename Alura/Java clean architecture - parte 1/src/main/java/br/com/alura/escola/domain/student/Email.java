@@ -1,4 +1,4 @@
-package br.com.alura.escola.model;
+package br.com.alura.escola.domain.student;
 
 public class Email {
 	

@@ -1,8 +1,4 @@
-package br.com.alura.escola.builder;
-
-import br.com.alura.escola.model.CPF;
-import br.com.alura.escola.model.Email;
-import br.com.alura.escola.model.Student;
+package br.com.alura.escola.domain.student;
 
 public class BuilderStudent {
 	
