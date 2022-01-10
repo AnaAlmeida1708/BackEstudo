@@ -19,7 +19,7 @@ public class RepositoryStudentWithJDBC implements StudentRepository {
 	}
 
 	@Override
-	public void matricular(Student student) {
+	public void enroll(Student student) {
 		try {
 			String sql = "INSERT INTO STUDENT (?, ? ?)";
 			PreparedStatement ps = connection.prepareStatement(sql);

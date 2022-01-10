@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface StudentRepository {
 	
-	void matricular(Student student);
+	void enroll(Student student);
 	
 	Student findByCPF(CPF cpf);
 	

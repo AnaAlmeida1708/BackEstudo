@@ -12,7 +12,7 @@ public class RepositoryStudentInMemory implements StudentRepository {
 	private List<Student> students = new ArrayList<Student>();
 
 	@Override
-	public void matricular(Student student) {
+	public void enroll(Student student) {
 		this.students.add(student);
 	}
 
